@@ -9,6 +9,8 @@ A barebones Android app with React-Native and App Center CodePush
 
 `appcenter codepush release-react -a mismith/CodePush-Test -d Production` creates a CodePush of the react-native diff changes as a release
 
+To see how versions get updated, make changes in App.js to visible text, then release new codepush versions.
+
 ### Local Dev
 
 `npx react-native run-android` intalls the app on a local device/emulator & runs metro server
