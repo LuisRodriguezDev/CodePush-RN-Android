@@ -24,7 +24,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+import codePush from "react-native-code-push";
+
+var App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -43,7 +45,7 @@ const App: () => React$Node = () => {
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
+                screen and then come back to see your edits. v8.0
               </Text>
             </View>
             <View style={styles.sectionContainer}>
@@ -110,5 +112,12 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
+let codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+  installMode: codePush.InstallMode.IMMEDIATE,
+  mandatoryInstallMode: codePush.InstallMode.IMMEDIATE
+};
+App = codePush(codePushOptions)(App);
 
 export default App;
